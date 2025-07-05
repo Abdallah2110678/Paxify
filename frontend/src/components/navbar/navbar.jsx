@@ -18,9 +18,14 @@ const Navbar = ({ onNavigate }) => {
                     {/* Logo */}
                     <div className="group flex items-center space-x-3 text-white cursor-pointer">
                         <div className="relative">
-                            <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:bg-opacity-30 transition-all duration-300 group-hover:scale-110">
-                                <span className="text-2xl">🏥</span>
+                            <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:bg-opacity-30 transition-all duration-300 group-hover:scale-110 overflow-hidden">
+                                <img
+                                    src="/logo.png"
+                                    alt="Paxify Logo"
+                                    className="w-8 h-8 object-contain"
+                                />
                             </div>
+
                             <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
                         </div>
                         <div className="flex flex-col">
@@ -43,8 +48,8 @@ const Navbar = ({ onNavigate }) => {
                                 key={link.id}
                                 onClick={() => handleLinkClick(link.id)}
                                 className={`relative group flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${activeLink === link.id
-                                        ? "bg-white bg-opacity-20 text-white shadow-lg backdrop-blur-sm"
-                                        : "text-blue-100 hover:text-white hover:bg-white hover:bg-opacity-10"
+                                    ? "bg-white bg-opacity-20 text-white shadow-lg backdrop-blur-sm"
+                                    : "text-blue-100 hover:text-white hover:bg-white hover:bg-opacity-10"
                                     }`}
                             >
                                 <span className="text-lg group-hover:scale-110 transition-transform duration-300">
