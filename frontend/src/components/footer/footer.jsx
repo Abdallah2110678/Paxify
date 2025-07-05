@@ -3,24 +3,19 @@ const Footer = () => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
         });
     };
 
     return (
         <>
-            {/* Footer - always visible */}
-            <footer className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white z-40">
+            <footer className="w-full bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white z-40">
                 <div className="container mx-auto px-6 py-8">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {/* Company Info */}
                         <div className="space-y-4">
                             <div className="flex items-center space-x-2">
-                                <img
-                                    src="/logo.png"
-                                    alt="Paxify Logo"
-                                    className="w-6 h-6 object-contain"
-                                />
+                                <img src="/logo.png" alt="Paxify Logo" className="w-6 h-6 object-contain" />
                                 <span className="text-xl font-bold">Paxify</span>
                             </div>
                             <p className="text-gray-300 text-sm">
@@ -60,23 +55,13 @@ const Footer = () => {
                         <div>
                             <h3 className="text-lg font-semibold mb-4">Contact</h3>
                             <div className="space-y-2 text-sm text-gray-300">
-                                <p className="flex items-center space-x-2">
-                                    <span>📞</span>
-                                    <span>+1 (555) 123-4567</span>
-                                </p>
-                                <p className="flex items-center space-x-2">
-                                    <span>📧</span>
-                                    <span>support@Paxify.com</span>
-                                </p>
-                                <p className="flex items-center space-x-2">
-                                    <span>📍</span>
-                                    <span>123 Health St, Medical City</span>
-                                </p>
+                                <p className="flex items-center space-x-2"><span>📞</span><span>+1 (555) 123-4567</span></p>
+                                <p className="flex items-center space-x-2"><span>📧</span><span>support@Paxify.com</span></p>
+                                <p className="flex items-center space-x-2"><span>📍</span><span>123 Health St, Medical City</span></p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Bottom Bar */}
                     <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-400 text-sm">
                             © 2024 Paxify - Health Management System. All rights reserved.
@@ -90,25 +75,15 @@ const Footer = () => {
                 </div>
             </footer>
 
-            {/* Back to Top Button - optional */}
+            {/* Back to Top button only */}
             <button
                 onClick={scrollToTop}
                 className="fixed bottom-20 right-6 z-50 group bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                 title="Back to top"
             >
                 <div className="w-6 h-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                    <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 10l7-7m0 0l7 7m-7-7v18"
-                        />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                     </svg>
                 </div>
             </button>
