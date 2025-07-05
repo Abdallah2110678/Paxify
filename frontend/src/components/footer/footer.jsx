@@ -16,7 +16,11 @@ const Footer = () => {
                         {/* Company Info */}
                         <div className="space-y-4">
                             <div className="flex items-center space-x-2">
-                                <span className="text-2xl">🏥</span>
+                                <img
+                                    src="/logo.png"
+                                    alt="Paxify Logo"
+                                    className="w-6 h-6 object-contain"
+                                />
                                 <span className="text-xl font-bold">Paxify</span>
                             </div>
                             <p className="text-gray-300 text-sm">
