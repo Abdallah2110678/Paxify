@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AdminPanel from "./components/AdminPanel";
-import DoctorPanel from "./components/DoctorPanel";
-import PatientPanel from "./components/PatientPanel";
-import AddDoctor from "./components/AddDoctor";
-import AddPatient from "./components/AddPatient";
-import Products from "./components/Products";
-import AddProduct from "./components/AddProduct";
-import DashboardOverview from "./components/DashboardOverview";
+import AdminPanel from "../admin/AdminPanel";
+import DoctorPanel from "../doctor/DoctorPanel";
+import PatientPanel from "../patients/PatientPanel";
+import AddDoctor from "../doctor/AddDoctor";
+import AddPatient from "../patients/AddPatient";
+import Products from "../products/Products";
+import AddProduct from "../products/AddProduct";
+import DashboardOverview from "./DashboardOverview";
 
 const Dashboard = () => {
     const [active, setActive] = useState("overview");
