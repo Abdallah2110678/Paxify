@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ onNavigate }) => {
     const [activeLink, setActiveLink] = useState('home');
+    const navigate = useNavigate();
 
     const handleLinkClick = (linkName) => {
         setActiveLink(linkName);
-        // Call the parent function to handle navigation
-        if (onNavigate) {
-            onNavigate(linkName);
-        }
+        navigate(linkName === "home" ? "/" : `/${linkName}`);
     };
 
     return (
@@ -42,6 +41,7 @@ const Navbar = ({ onNavigate }) => {
                             { id: "therapists", label: "Find Therapists", icon: "👨‍⚕️" },
                             { id: "games", label: "Games", icon: "🎮" },
                             { id: "about", label: "About", icon: "ℹ️" },
+                            { id: "dashboard", label: "Dashboard", icon: "📊" },
                             { id: "settings", label: "Settings", icon: "⚙️" }
                         ].map((link) => (
                             <button
