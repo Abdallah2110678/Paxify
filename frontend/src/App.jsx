@@ -3,29 +3,39 @@ import Navbar from "./components/navbar/navbar.jsx";
 import Footer from "./components/footer/footer.jsx";
 import Home from "./pages/home/home.jsx";
 import Dashboard from "./pages/dashboard/dashboard.jsx";
-
-function AppLayout() {
-  const location = useLocation();
-  const isDashboard = location.pathname === "/dashboard";
-
-  return (
-    <>
-      {!isDashboard && <Navbar />}
-      <div className={`${!isDashboard ? "pb-28" : ""}`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </div>
-      {!isDashboard && <Footer />}
-    </>
-  );
-}
+import BookSession from "./pages/book/BookSession.jsx";
+import FindTherapists from "./pages/therapists/FindTherapists.jsx";
+import Games from "./pages/games/Games.jsx";
+import About from "./pages/about/About.jsx";
+import Settings from "./pages/settings/Settings.jsx";
 
 function App() {
   return (
     <Router>
-      <AppLayout />
+      <div>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/*"
+            element={
+              <>
+                <Navbar />
+                <div className="pt-20 pb-16 min-h-screen bg-gray-50">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/book" element={<BookSession />} />
+                    <Route path="/therapists" element={<FindTherapists />} />
+                    <Route path="/games" element={<Games />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/settings" element={<Settings />} />
+                  </Routes>
+                </div>
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+      </div>
     </Router>
   );
 }

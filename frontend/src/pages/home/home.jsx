@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "../../components/navbar/navbar.jsx";
 
 const Home = () => {
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -16,8 +15,7 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
-            <div className="min-h-screen">
+            <div className="min-h-screen pb-28">
                 {/* HERO SECTION */}
                 <section className="relative h-screen flex items-center justify-center overflow-hidden">
                     {/* Background Image with Blur */}
