@@ -8,6 +8,7 @@ import FindTherapists from "./pages/therapists/FindTherapists.jsx";
 import Games from "./pages/games/Games.jsx";
 import About from "./pages/about/About.jsx";
 import Settings from "./pages/settings/Settings.jsx";
+import DoctorDashboard from "./pages/doctor/DoctorDashboard.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
           <Route
             path="/*"
             element={

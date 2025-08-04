@@ -42,7 +42,9 @@ const Navbar = ({ onNavigate }) => {
                             { id: "games", label: "Games", icon: "🎮" },
                             { id: "about", label: "About", icon: "ℹ️" },
                             { id: "dashboard", label: "Dashboard", icon: "📊" },
-                            { id: "settings", label: "Settings", icon: "⚙️" }
+                            { id: "doctor-dashboard", label: "Doctor Dashboard", icon: "🩺" },
+                            { id: "settings", label: "Settings", icon: "⚙️" },               
+
                         ].map((link) => (
                             <button
                                 key={link.id}
