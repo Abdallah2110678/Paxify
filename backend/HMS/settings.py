@@ -39,7 +39,12 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
 }
+
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
@@ -72,6 +77,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'HMS.urls'
+AUTH_USER_MODEL = 'user.User'
 
 TEMPLATES = [
     {
