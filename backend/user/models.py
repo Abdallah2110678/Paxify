@@ -16,7 +16,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username'] 
-    
+
     def __str__(self):
         return f"{self.email} ({self.role})"
 
@@ -64,6 +64,7 @@ class Appointment(models.Model):
             ('cancelled', 'Cancelled')
         ]
     )
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"Appointment on {self.date_time} with Dr. {self.doctor.user.username}"
