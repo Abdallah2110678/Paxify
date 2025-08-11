@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar.jsx";
 import Footer from "./components/footer/footer.jsx";
 import Home from "./pages/home/home.jsx";
@@ -9,6 +9,7 @@ import Games from "./pages/games/Games.jsx";
 import About from "./pages/about/About.jsx";
 import Settings from "./pages/settings/Settings.jsx";
 import DoctorDashboard from "./pages/doctor/DoctorDashboard.jsx";
+import PatientDashboard from './pages/patients/PatientDashboard.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+          <Route path="/patient-dashboard" element={<PatientDashboard />} />
           <Route
             path="/*"
             element={
