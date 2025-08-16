@@ -1,61 +1,60 @@
 package com.example.backend.models;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
-
-import lombok.Data;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 
 @Entity
-@Data
-@NoArgsConstructor
-@Table(name = "users")
-public class User {
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(name = "uk_users_email", columnNames = "email"))
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "role", discriminatorType = DiscriminatorType.STRING, length = 20)
+@Getter @Setter @NoArgsConstructor
+public abstract class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @NotBlank
+    @Column(nullable = false, length = 120)
     private String name;
 
-    @Column(name = "email")
+    @Email @NotBlank
+    @Column(nullable = false, length = 160)
     private String email;
 
-    @Column(name = "password")
+    @JsonIgnore
+    @NotBlank
+    @Column(nullable = false, length = 255)
     private String password;
 
-    @Column(name = "gender")
-    private String gender; // or use an enum if you prefer
+    @Column(length = 10)
+    private String gender;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    // Shared nullable columns for subclasses (keeps a single table)
+    @Column(length = 255)
+    protected String description;   // used by Doctor
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Patient patient;
+    @Column(length = 1000)
+    protected String bio;           // used by Doctor
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Doctor doctor;
+    @Column(length = 32)
+    protected String phoneNumber;   // used by Patient
 
-    public void attachpatient(Patient p) {
-        this.patient = p;
-        if (p != null)
-            p.setUser(this);
-    }
-
-    public void attachdoctor(Doctor d) {
-        this.doctor = d;
-        if (d != null)
-            d.setUser(this);
-    }
+    @Column(length = 255)
+    protected String address;       // used by Patient
 }

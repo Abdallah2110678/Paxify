@@ -1,4 +1,3 @@
-// src/main/java/com/example/backend/repositories/UserRepo.java
 package com.example.backend.repositories;
 
 import java.util.Optional;
@@ -11,3 +10,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     boolean existsByEmail(String email);
 }
+
+
+
+
