@@ -1,5 +1,5 @@
 package com.example.backend.models;
 
-public class Role {
-    
+public enum Role {
+    ADMIN, DOCTOR, PATIENT
 }
